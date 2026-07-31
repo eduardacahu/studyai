@@ -86,6 +86,18 @@ http://localhost:8080/perguntar?pergunta=Ola
 A imagem abaixo demonstra uma resposta gerada pela Gemini através da aplicação StudyAI.
 
 ![Resposta da Gemini](docs/resposta-gemini.png)
+## Integração Contínua
+
+O projeto utiliza **GitHub Actions** para executar automaticamente o processo de build e testes a cada novo push ou pull request realizado na branch `main`.
+
+O workflow de CI realiza:
+
+- Checkout do código-fonte;
+- Configuração do Java 25;
+- Configuração do ambiente Maven;
+- Execução automática do build e dos testes com `./mvnw clean verify`.
+
+Essa automação permite verificar continuamente se a aplicação permanece compilando e funcionando corretamente após alterações no código.
 ## Objetivo do projeto
 
 O objetivo do StudyAI é demonstrar, de forma prática, a integração entre uma aplicação Spring Boot e uma ferramenta de Inteligência Artificial Generativa, utilizando boas práticas de versionamento e proteção de credenciais.
