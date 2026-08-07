@@ -1,3 +1,4 @@
+[![CI - StudyAI](https://github.com/eduardacahu/studyai/actions/workflows/ci.yml/badge.svg)](https://github.com/eduardacahu/studyai/actions/workflows/ci.yml)
 # StudyAI
 
 O **StudyAI** é uma API desenvolvida em Java com Spring Boot que utiliza Inteligência Artificial Generativa para responder perguntas e auxiliar nos estudos.
