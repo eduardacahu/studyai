@@ -23,19 +23,22 @@ public class GeminiService {
             "contents", List.of(
                 Map.of(
                     "parts", List.of(
-                        Map.of("text", pergunta)
+                        Map.of(
+                            "text",
+                            "Responda em português do Brasil, em texto simples, sem Markdown, sem asteriscos e sem hashtags. Mantenha acentos, pontuação e caracteres normais da língua portuguesa. " + pergunta+ pergunta
+                        )
                     )
                 )
             )
         );
 
         Map resposta = restClient.post()
-            .uri(url)
-            .header("x-goog-api-key", apiKey)
-            .header("Content-Type", "application/json")
-            .body(body)
-            .retrieve()
-            .body(Map.class);
+                .uri(url)
+                .header("x-goog-api-key", apiKey)
+                .header("Content-Type", "application/json")
+                .body(body)
+                .retrieve()
+                .body(Map.class);
 
         List candidates = (List) resposta.get("candidates");
         Map candidate = (Map) candidates.get(0);
