@@ -1,5 +1,7 @@
 package br.com.eduarda.studyai.service;
-
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -18,14 +20,21 @@ public class GeminiService {
     public String perguntar(String pergunta) {
 
         String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent";
+LocalDate hoje = LocalDate.now(ZoneId.of("America/Sao_Paulo"));
 
+String dataAtual = hoje.format(
+    DateTimeFormatter.ofPattern("dd/MM/yyyy")
+);
         Map<String, Object> body = Map.of(
             "contents", List.of(
                 Map.of(
                     "parts", List.of(
                         Map.of(
                             "text",
-                            "Responda em português do Brasil, em texto simples, sem Markdown, sem asteriscos e sem hashtags. Mantenha acentos, pontuação e caracteres normais da língua portuguesa. " + pergunta+ pergunta
+                            
+"Hoje é " + dataAtual +
+". Responda em português brasileiro com acentuação correta, sem Markdown, sem asteriscos e sem hashtags. " +
+"Se a pergunta envolver a data atual, utilize esta data. Pergunta: " + pergunta
                         )
                     )
                 )
