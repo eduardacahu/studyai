@@ -14,7 +14,7 @@ public class IaController {
         this.geminiService = geminiService;
     }
 
-    @GetMapping("/perguntar")
+    @GetMapping(value = "/perguntar", produces = "text/plain;charset=UTF-8")
     public String perguntar(@RequestParam String pergunta) {
         return geminiService.perguntar(pergunta);
     }

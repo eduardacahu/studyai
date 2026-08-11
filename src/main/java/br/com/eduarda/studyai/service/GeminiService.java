@@ -32,9 +32,13 @@ String dataAtual = hoje.format(
                         Map.of(
                             "text",
                             
-"Hoje é " + dataAtual +
-". Responda em português brasileiro com acentuação correta, sem Markdown, sem asteriscos e sem hashtags. " +
-"Se a pergunta envolver a data atual, utilize esta data. Pergunta: " + pergunta
+"Hoje é " + dataAtual + ". " +
+"Você é um assistente de estudos. " +
+"Responda exatamente ao que foi pedido, sem acrescentar explicações desnecessárias. " +
+"Use português brasileiro com acentuação correta. " +
+"Nunca utilize Markdown, asteriscos, hashtags ou emojis. " +
+"Se a pergunta envolver a data atual, utilize esta data. " +
+"Pergunta: " + pergunta
                         )
                     )
                 )
