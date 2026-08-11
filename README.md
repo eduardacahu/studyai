@@ -1,5 +1,5 @@
 # StudyAI
-
+![CI](https://github.com/eduardacahu/studyai/actions/workflows/ci.yml/badge.svg)
 O **StudyAI** é uma aplicação web desenvolvida em Java com Spring Boot que utiliza Inteligência Artificial Generativa para responder perguntas e auxiliar nos estudos.
 
 O projeto foi desenvolvido como parte do desafio de **DevOps e Inteligência Artificial**, integrando desenvolvimento de software, IA generativa, testes automatizados, integração contínua, conteinerização e deploy em nuvem.
