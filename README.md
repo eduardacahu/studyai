@@ -1,25 +1,37 @@
-[![CI - StudyAI](https://github.com/eduardacahu/studyai/actions/workflows/ci.yml/badge.svg)](https://github.com/eduardacahu/studyai/actions/workflows/ci.yml)
 # StudyAI
 
-O **StudyAI** é uma API desenvolvida em Java com Spring Boot que utiliza Inteligência Artificial Generativa para responder perguntas e auxiliar nos estudos.
+O **StudyAI** é uma aplicação web desenvolvida em Java com Spring Boot que utiliza Inteligência Artificial Generativa para responder perguntas e auxiliar nos estudos.
 
-O projeto foi desenvolvido como parte do desafio de **DevOps e Inteligência Artificial**, aplicando conceitos de desenvolvimento de APIs, versionamento de código com Git/GitHub e integração com IA generativa.
+O projeto foi desenvolvido como parte do desafio de **DevOps e Inteligência Artificial**, integrando desenvolvimento de software, IA generativa, testes automatizados, integração contínua, conteinerização e deploy em nuvem.
+
+## Aplicação em produção
+
+O StudyAI está publicado no Render e pode ser acessado em:
+
+https://studyai-fvyp.onrender.com
+
+> Por utilizar uma instância gratuita do Render, o primeiro acesso pode levar alguns segundos enquanto o serviço é inicializado.
 
 ## Tecnologias utilizadas
 
-- Java
+- Java 25
 - Spring Boot
 - Maven
-- Git
-- GitHub
+- HTML, CSS e JavaScript
 - Gemini API (Google)
 - REST API
+- Git e GitHub
+- GitHub Actions
+- Docker
+- Render
 
 ## Funcionalidades
 
-A aplicação possui dois endpoints principais:
+O StudyAI possui uma interface web que permite ao usuário enviar perguntas e receber respostas geradas por Inteligência Artificial.
 
-### 1. Verificação da API
+A aplicação também disponibiliza endpoints REST.
+
+### Verificação da API
 
 ```http
 GET /hello
@@ -31,19 +43,13 @@ Exemplo de resposta:
 Olá! O StudyAI está funcionando!
 ```
 
-### 2. Pergunta para Inteligência Artificial
+### Pergunta para Inteligência Artificial
 
 ```http
 GET /perguntar?pergunta=SuaPergunta
 ```
 
-Exemplo:
-
-```http
-GET /perguntar?pergunta=Explique DevOps em uma frase
-```
-
-A pergunta é enviada para a API do Gemini e a resposta gerada pela Inteligência Artificial é retornada pela aplicação.
+A pergunta é enviada à API Gemini e a resposta gerada pela Inteligência Artificial é retornada pela aplicação.
 
 ## Configuração da API
 
@@ -55,9 +61,11 @@ A aplicação utiliza a variável de ambiente:
 GEMINI_API_KEY
 ```
 
-## Executando o projeto
+O arquivo `.env.example` demonstra a configuração necessária sem expor credenciais reais.
 
-Com a variável de ambiente configurada, execute:
+## Executando o projeto localmente
+
+Configure a variável de ambiente `GEMINI_API_KEY` e execute:
 
 ```bash
 ./mvnw spring-boot:run
@@ -69,40 +77,48 @@ A aplicação ficará disponível em:
 http://localhost:8080
 ```
 
-## Exemplos de acesso
+## Testes automatizados
 
-Teste da aplicação:
+O projeto possui testes automatizados utilizando o suporte de testes do Spring Boot.
 
-```text
-http://localhost:8080/hello
+Para executar os testes:
+
+```bash
+./mvnw test
 ```
 
-Pergunta para a IA:
+Os testes também são executados automaticamente pelo pipeline de integração contínua.
 
-```text
-http://localhost:8080/perguntar?pergunta=Ola
-```
-## Evidência da integração com IA
-
-A imagem abaixo demonstra uma resposta gerada pela Gemini através da aplicação StudyAI.
-
-![Resposta da Gemini](docs/resposta-gemini.png)
 ## Integração Contínua
 
 O projeto utiliza **GitHub Actions** para executar automaticamente o processo de build e testes a cada novo push ou pull request realizado na branch `main`.
 
-O workflow de CI realiza:
+O workflow realiza:
 
 - Checkout do código-fonte;
 - Configuração do Java 25;
 - Configuração do ambiente Maven;
-- Execução automática do build e dos testes com `./mvnw clean verify`.
+- Build da aplicação;
+- Execução automática dos testes com `./mvnw clean verify`.
 
-Essa automação permite verificar continuamente se a aplicação permanece compilando e funcionando corretamente após alterações no código.
+Dessa forma, alterações no código são verificadas automaticamente antes de serem consideradas válidas no projeto.
+
+## Docker
+
+O projeto possui um `Dockerfile`, permitindo que a aplicação seja construída e executada em um ambiente conteinerizado.
+
+O Docker também é utilizado no processo de publicação da aplicação no Render.
+
+## Deploy
+
+O StudyAI está hospedado no **Render**.
+
+O serviço está conectado ao repositório do GitHub e utiliza deploy automático, permitindo que novas versões da aplicação sejam publicadas após alterações enviadas para a branch principal.
+
 ## Objetivo do projeto
 
-O objetivo do StudyAI é demonstrar, de forma prática, a integração entre uma aplicação Spring Boot e uma ferramenta de Inteligência Artificial Generativa, utilizando boas práticas de versionamento e proteção de credenciais.
+O objetivo do StudyAI é demonstrar, de forma prática, a integração entre uma aplicação Spring Boot e Inteligência Artificial Generativa, aplicando conceitos de DevOps como versionamento, integração contínua, testes automatizados, conteinerização, proteção de credenciais e deploy em nuvem.
 
 ## Autora
 
-Eduarda Cahu
+Maria Eduarda Cahu
